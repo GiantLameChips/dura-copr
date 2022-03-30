@@ -12,8 +12,6 @@ Summary:        You shouldn't ever lose your work if you're using Git
 License:        ASL 2.0
 URL:            https://crates.io/crates/dura
 Source:         %{crates_source}
-# Initial patched metadata
-Patch0:         dura-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
@@ -66,18 +64,19 @@ use the "default" feature of the "%{crate}" crate.
 %cargo_prep
 
 %generate_buildrequires
-%cargo_generate_buildrequires
+%cargo_generate_buildrequires -a
+echo '/usr/bin/asciidoctor'
 
 %build
-%cargo_build
+%cargo_build -a
 
 %install
-%cargo_install
+%cargo_install -a
 
-#%if %{with check}
-#%check
-#%cargo_test
-#%endif
+%if %{with check}
+%check
+%cargo_test
+%endif
 
 %changelog
 %autochangelog
