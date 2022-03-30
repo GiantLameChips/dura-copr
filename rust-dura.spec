@@ -74,10 +74,10 @@ use the "default" feature of the "%{crate}" crate.
 %install
 %cargo_install
 
-%if %{with check}
-%check
-%cargo_test
-%endif
+#%if %{with check}
+#%check
+#%cargo_test
+#%endif
 
 %changelog
 %autochangelog
