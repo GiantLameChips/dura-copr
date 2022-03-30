@@ -73,10 +73,7 @@ echo '/usr/bin/asciidoctor'
 %install
 %cargo_install -a
 
-%if %{with check}
-%check
-%cargo_test
-%endif
+
 
 %changelog
 %autochangelog
