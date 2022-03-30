@@ -12,10 +12,13 @@ Summary:        You shouldn't ever lose your work if you're using Git
 License:        ASL 2.0
 URL:            https://crates.io/crates/dura
 Source:         %{crates_source}
+# Initial patched metadata
+Patch0:         dura-fix-metadata.diff
 
 ExclusiveArch:  %{rust_arches}
 
 BuildRequires:  rust-packaging >= 21
+
 %global _description %{expand:
 You shouldn't ever lose your work if you're using Git.}
 
